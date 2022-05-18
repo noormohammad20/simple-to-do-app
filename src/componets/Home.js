@@ -1,9 +1,23 @@
 import React from 'react'
-
+import ToDos from './ToDos'
+import style from './home.module.css'
+const someToDos = [
+    {
+        id: 1,
+        title: 'todo1',
+        des: 'des1'
+    },
+    {
+        id: 2,
+        title: 'todo2',
+        des: 'des2'
+    },
+]
 const Home = () => {
     return (
-        <div>
-            <h2>Home</h2>
+        <div className={style.container}>
+            <h1 style={{ text: 'center' }}>Simple To-Do App</h1>
+            <ToDos toDos={someToDos} />
         </div>
     )
 }

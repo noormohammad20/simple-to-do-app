@@ -1,9 +1,12 @@
 import React from 'react'
-
-const ToDos = () => {
+import ToDo from './ToDo'
+import style from './toDos.module.css'
+const ToDos = ({ toDos }) => {
     return (
-        <div>
-            <h2>ToDos</h2>
+        <div className={style.toDos}>
+            {
+                toDos.map(toDo => <ToDo key={toDo.id} toDo={toDo} />)
+            }
         </div>
     )
 }
