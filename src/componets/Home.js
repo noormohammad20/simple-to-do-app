@@ -1,25 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ToDos from './ToDos'
 import style from './home.module.css'
 import NewToDo from './NewToDo'
-const someToDos = [
-    {
-        id: 1,
-        title: 'todo1',
-        des: 'des1'
-    },
-    {
-        id: 2,
-        title: 'todo2',
-        des: 'des2'
-    },
-]
+import { v4 as uuidv4 } from 'uuid'
 const Home = () => {
+    const [toDos, setToDos] = useState([])
+
+    const handleAddToDo = toDo => {
+        setToDos((prevToDos) => {
+            return [...prevToDos, { id: uuidv4(), toDo }]
+        })
+    }
+    const handleRemoveToDo = id => {
+
+        setToDos((prevToDos) => {
+            const filterToDos = prevToDos.filter(todo => todo.id !== id)
+            return filterToDos
+        })
+    }
     return (
         <div className={style.container}>
             <h1 style={{ text: 'center' }}>Simple To-Do App</h1>
-            <NewToDo />
-            <ToDos toDos={someToDos} />
+            <NewToDo handleAddToDo={handleAddToDo} />
+            <ToDos toDos={toDos} onRemoveToDo={handleRemoveToDo} />
         </div>
     )
 }

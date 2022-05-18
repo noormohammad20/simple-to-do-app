@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import style from './newToDo.module.css'
 
-const NewToDo = () => {
+const NewToDo = ({ handleAddToDo }) => {
     const [toDo, setToDo] = useState({ title: '', des: '' })
     const { title, des } = toDo
 
@@ -14,13 +14,14 @@ const NewToDo = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(toDo)
+        handleAddToDo(toDo)
+        setToDo({ title: "", des: "" })
 
     }
     return (
-        <form onClick={handleSubmit} className={style.from}>
+        <form onSubmit={handleSubmit} className={style.from}>
             <div className={style["from-field"]}>
-                <label htmlFor="title">Title:</label>
+                <label htmlFor="title">Name:</label>
                 <input type="text" name="title" id="title"
                     value={title} onChange={handleChange} />
             </div>
