@@ -15,7 +15,9 @@ const Home = () => {
 
         setToDos((prevToDos) => {
             const filterToDos = prevToDos.filter(todo => todo.id !== id)
+            alert('successfully deleted ')
             return filterToDos
+
         })
     }
     return (

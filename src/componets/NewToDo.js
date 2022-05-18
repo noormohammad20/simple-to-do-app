@@ -16,6 +16,7 @@ const NewToDo = ({ handleAddToDo }) => {
         e.preventDefault()
         handleAddToDo(toDo)
         setToDo({ title: "", des: "" })
+        alert('successfully added')
 
     }
     return (
