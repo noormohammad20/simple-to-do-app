@@ -1,6 +1,7 @@
 import React from 'react'
 import ToDos from './ToDos'
 import style from './home.module.css'
+import NewToDo from './NewToDo'
 const someToDos = [
     {
         id: 1,
@@ -17,6 +18,7 @@ const Home = () => {
     return (
         <div className={style.container}>
             <h1 style={{ text: 'center' }}>Simple To-Do App</h1>
+            <NewToDo />
             <ToDos toDos={someToDos} />
         </div>
     )
